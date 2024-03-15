@@ -1,11 +1,17 @@
-// FileList.jsx
 import React from 'react';
 
-const FileList = () => {
+const FileList = ({ files, onDelete }) => {
   return (
     <div>
-      <h2>File List</h2>
-      {/* Implement file list UI */}
+      <h2>Uploaded Files</h2>
+      <ul>
+        {files.map((file, index) => (
+          <li key={index}>
+            {file.name} - {file.size} bytes
+            <button onClick={() => onDelete(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

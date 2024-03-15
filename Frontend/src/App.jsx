@@ -13,6 +13,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername] = useState('');
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const handleLogin = (username) => {
     setIsAuthenticated(true);
@@ -25,6 +26,16 @@ const App = () => {
     // Implement logout logic here
   };
 
+  const handleUpload = (file) => {
+    setUploadedFiles([...uploadedFiles, file]);
+  };
+
+  const handleDelete = (index) => {
+    const newFiles = [...uploadedFiles];
+    newFiles.splice(index, 1);
+    setUploadedFiles(newFiles);
+  };
+
   return (
     <Router>
       <Auth0Provider
@@ -35,14 +46,19 @@ const App = () => {
         }}
       >
         <Navbar isAuthenticated={isAuthenticated} username={username} onLogout={handleLogout} />
+        
         <Routes>
-          <Route exact path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route exact path="/logout" element={<Logout onLogout={handleLogout} />} />
-          <Route exact path="/upload" element={<FileUpload />} />
-          <Route exact path="/files" element={<FileList />} />
-          <Route exact path="/map" element={<Map />} />
+    
+          <Route exact path="/" element={<FileUpload onUpload={handleUpload} />} />
+          <Route exact path="/filelist" element={<FileList files={uploadedFiles} onDelete={handleDelete} />} />
+          <Route exact path="/" element={<Map />} />
           <Route exact path="/draw" element={<DrawMap />} />
         </Routes>
+
+        {/* Render map component here */}
+        {uploadedFiles.length > 0 && (
+          <Map />
+        )}
       </Auth0Provider>
     </Router>
   );

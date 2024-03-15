@@ -6,8 +6,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Implement login logic here
-    onLogin(username); // Assuming login is successful
+    onLogin(username); 
   };
 
   return (

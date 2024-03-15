@@ -1,12 +1,11 @@
-// Map.jsx
 import React from 'react';
+import { MapContainer, TileLayer } from 'react-leaflet';
 
 const Map = () => {
   return (
-    <div>
-      <h2>Map</h2>
-      {/* Implement map UI */}
-    </div>
+    <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: '400px' }}>
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+    </MapContainer>
   );
 };
 
