@@ -1,0 +1,30 @@
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #101a36;
+    padding: 10px;
+}
+#logo{
+    height: 60px;
+}
+
+.button {
+    background-color: #101a36;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #0f1d3e;
+    transform: scale(1.1);
+}
+
+#welcome{
+    color: white;
+    margin-right: 10px;
+}
