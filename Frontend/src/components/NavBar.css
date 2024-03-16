@@ -4,6 +4,7 @@ nav{
     align-items: center;
     background-color: #101a36;
     padding: 10px;
+    width: 100%;
 }
 #logo{
     height: 60px;

@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -23,7 +22,7 @@ const App = () => {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setUsername('');
-    // Implement logout logic here
+    
   };
 
   const handleUpload = (file) => {
@@ -52,7 +51,7 @@ const App = () => {
           <Route exact path="/" element={<FileUpload onUpload={handleUpload} />} />
           <Route exact path="/filelist" element={<FileList files={uploadedFiles} onDelete={handleDelete} />} />
           <Route exact path="/" element={<Map />} />
-          <Route exact path="/draw" element={<DrawMap />} />
+          <Route exact path="/" element={<DrawMap />} />
         </Routes>
 
         {/* Render map component here */}
